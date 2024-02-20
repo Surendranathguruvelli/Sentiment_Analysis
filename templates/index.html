@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #aae5f6, #7deea6);
+            background-attachment: fixed, fixed;
+            background-size: cover, cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .input-container {
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .input-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: left;
+            color: #555;
+            font-weight: bold;
+        }
+
+        #sentiment-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #sentiment-input:focus {
+            border-color: #007BFF;
+        }
+
+        #analyze-button {
+            background: linear-gradient(to bottom, #007BFF, #0056b3);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #analyze-button:hover {
+            background: linear-gradient(to bottom, #0056b3, #00397a);
+            transform: scale(1.05);
+        }
+
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            border: 2px solid #ccc;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: box-shadow 0.3s;
+        }
+        #result:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <div class="overlay"></div>
+        <h1>Sentiment Analysis</h1>
+        <form id="sentiment-form">
+            <label for="sentiment-input">Enter text for analysis:</label>
+            <textarea id="sentiment-input" rows="4" cols="50"></textarea>
+            <button type="submit" id="analyze-button">Analyze</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
